@@ -1,0 +1,29 @@
+.title{
+    width: 1024px;
+    font-size: 24px;
+    margin-bottom: 10px 0px;
+}
+
+.fpList{
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: space-between; /* Distribute items evenly */
+    gap: 20px;
+    max-width: 1024px;
+    margin: 0 auto; /* Center the list */
+}
+
+.fpListItem{
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    /* overflow: hidden; */
+    cursor: pointer;
+}
+
+.fpImg {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
