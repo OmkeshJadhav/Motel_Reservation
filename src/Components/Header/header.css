@@ -12,6 +12,10 @@
     margin: 20px 0px 100px 0px;
 }
 
+.headerContainer.hotelsList{
+    margin: 20px 0px 0px 0px;
+}
+
 .headerList{
     display: flex;
     gap: 40px;
@@ -80,6 +84,7 @@
 .date{
     position: absolute;
     top: 50px;
+    z-index: 2;
 }
 
 .options{
@@ -90,6 +95,7 @@
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 10px -5px rgba(166,166,166,1);
     box-shadow: 0px 0px 10px -5px rgba(166,166,166,1);
+    z-index: 2;
 }
 
 .optionItem{
