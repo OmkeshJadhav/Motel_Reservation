@@ -54,8 +54,21 @@
     * In optionCount div : 2 buttons - 1 for increment and 1 for decrement & 1 span to display the count
         * Span should dynamically display the count - using state of chooseNoOfPerson
         * Buttons onClick shall call a function (onClick={()=>handleOption("adult", "i")}) whih in turn increase or decrease the counts
+            
             const handleOption = (name, operation) => {
                 setChooseNoOfPerson(prev => {return {...prev, [name]: operation === "i" ? chooseNoOfPerson[name]+1 : chooseNoOfPerson[name]- 1}})
             }
     * Disable the count buttons when at appropriate count. 
             <button disabled={chooseNoOfPerson.room < 2}>-</button>
+
+
+## Hotels List
+* We have to reuse the navbar and header components on hotelsList page. But we don't want to use searchbar and other textual content of header component. So for that
+    * Pass a prop 'type = HotelsList' to Header component in HotelsList component.
+    * Now in Header component receive this prop and now make a condition for the part you don't want to display i.e. type !== "hotelsList" && - if type is not hotelsList then only display the content and if type is hotelsList then don't display it. You need to wrap the content in {} with which you are playing with.
+    * Now to handle the styling for this, conditionally give the className and make changes accordingly
+        * <div className= {type === "hotelsList" ? "headerContainer hotelsList" : "headerContainer"}>
+
+## Featured Cities
+* Image and Title - Hard Coded
+
