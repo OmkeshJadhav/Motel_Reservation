@@ -47,3 +47,15 @@
     * Below span, paste <DateRange/> component imported from react-date-range. - Then position it using CSS.
 
 12. To toggle visibility of Date calender - create useState and make changes accordingly
+13. No of Persons and Room selection
+    * Create useState which set initial value for No of persons and room (chooseNoOfPerson and setChooseNoOfPerson)
+    * Also create another useState to handle it's visibility - Initially set it's value to false 
+    * Create div for optionItems - This will have span for optionText(Adult, Children, Room) and optionCount div for increasing/decreasing the count
+    * In optionCount div : 2 buttons - 1 for increment and 1 for decrement & 1 span to display the count
+        * Span should dynamically display the count - using state of chooseNoOfPerson
+        * Buttons onClick shall call a function (onClick={()=>handleOption("adult", "i")}) whih in turn increase or decrease the counts
+            const handleOption = (name, operation) => {
+                setChooseNoOfPerson(prev => {return {...prev, [name]: operation === "i" ? chooseNoOfPerson[name]+1 : chooseNoOfPerson[name]- 1}})
+            }
+    * Disable the count buttons when at appropriate count. 
+            <button disabled={chooseNoOfPerson.room < 2}>-</button>
