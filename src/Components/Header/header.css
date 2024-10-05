@@ -12,6 +12,10 @@
     margin: 20px 0px 100px 0px;
 }
 
+.headerContainer.hotelsList{
+    margin: 20px 0px 0px 0px;
+}
+
 .headerList{
     display: flex;
     gap: 40px;
