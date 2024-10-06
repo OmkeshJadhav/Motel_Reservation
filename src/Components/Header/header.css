@@ -84,12 +84,14 @@
 .date{
     position: absolute;
     top: 50px;
+    right: 400px;
     z-index: 2;
 }
 
 .options{
     position: absolute;
-    top: 55px;
+    top: 25px;
+    right: 90px;
     background-color: #fff;
     color: gray;
     border-radius: 5px;
