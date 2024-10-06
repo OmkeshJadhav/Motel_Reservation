@@ -30,7 +30,7 @@ const Header = ({type}) => {
     const navigate = useNavigate()
 
     const handleOption = (name, operation) => {
-        setChooseNoOfPerson(prev => {return {...prev, [name]: operation === "i" ? chooseNoOfPerson[name]+1 : chooseNoOfPerson[name]- 1}})
+        setChooseNoOfPerson(prev => ({ ...prev, [name]: operation === "i" ? prev[name] + 1 : prev[name] - 1 }));
     }
 
     const handleSearch = () => {
@@ -127,6 +127,7 @@ const Header = ({type}) => {
                                     moveRangeOnFirstSelection={false}
                                     ranges={date}
                                     className="date"
+                                    minDate={new Date()}
                                 />
                             </div>
                         }
