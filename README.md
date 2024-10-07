@@ -72,3 +72,70 @@
 ## Featured Cities
 * Image and Title - Hard Coded
 
+
+## Filter / Search
+###On home page
+1. onClick of Search button it should navigate us to hotelsList page - For that use useNavigate
+    * const navigate = useNavigate()
+    * const handleSearch = () => {
+        navigate("/hotelsList")
+    }
+
+2. To capture the input in search bar
+    * Create State : const [destination, setDestination] = useState("")
+    * On change in input it's state should change : 
+            <input
+                type="text"
+                placeholder="Where are you going?"
+                className="headerSearchInput"
+                onChange={e=>setDestination(e.target.value)}
+            />
+
+3. Now pass the updated state to hotelsList page through navigate
+    * navigate("/hotelsList", {state : {destination, date, chooseNoOfPerson}})
+
+### On hotelsList page
+4. Import useLocation hook from react-router-dom - This will have all the values passed as prop to naviaget
+    * const location = useLocation()
+    * Check the received value by logging location
+5. From props received -
+    * Get values for destination, date and chooseNoOfPersons and use them wherever needed - Use either directly or through useState
+        const [destination, setDestination] = useState(location.state.destination)
+        const [date, setDate] = useState(location.state.date)
+        const [chooseNoOfPerson, setchooseNoOfPerson] = useState(location.state.chooseNoOfPerson)
+
+
+
+## To prevent Calender and option choosing overlap each other
+1. onClick={(e) => {
+        e.stopPropagation();
+        setShowNoOfPerson(!showNoOfPerson);
+        setDateVisible(false);
+    }}
+2. {showNoOfPerson && 
+        <div className="options" onClick={e => e.stopPropagation()}>
+        .
+        .
+        .
+        </div>
+3. Do similar for Option choosing
+
+## To Close dropdowns when clicking outside
+    const handleClickOutside = (e) => {
+        if (!e.target.closest('.headerSearchItem')) {
+            setDateVisible(false);
+            setShowNoOfPerson(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
+## To prevent selection of paste dates
+    <DateRange
+        minDate={new Date()}
+    />
